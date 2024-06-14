@@ -24,11 +24,11 @@ def get_rand_comic():
     comic_url = f"https://xkcd.com/{rand_comic_number}/info.0.json"
     response = requests.get(comic_url)
     response.raise_for_status()
-    response_json = response.json()
+    comic_response = response.json()
 
-    img_url = response_json["img"]
-    transcript_text = response_json["transcript"]
-    alt_text = response_json["alt"]
+    img_url = comic_response["img"]
+    transcript_text = comic_response["transcript"]
+    alt_text = comic_response["alt"]
 
     return img_url, transcript_text, alt_text
 
